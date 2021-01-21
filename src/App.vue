@@ -1,10 +1,23 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + Vite" />
+  <Suspense>
+    <template #default>
+      <show-category />
+    </template>
+    <template #fallback>
+      <span>Cargando...</span>
+    </template>
+  </Suspense>
 </template>
 
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
+<script>
+import ShowCategory from "./components/ShowCategory.vue";
+export default {
+  name: "App",
+  components: {
+    ShowCategory,
+  },
+};
 </script>
 
 <style>
